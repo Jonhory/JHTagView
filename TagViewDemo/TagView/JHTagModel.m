@@ -24,10 +24,16 @@
 }
 
 - (CGFloat)width{
+    if (_width > 0) {
+        return _width;
+    }
     return self.size.width + self.widthMargin;
 }
 
 - (CGFloat)height{
+    if (_height > 0) {
+        return _height;
+    }
     return self.size.height + self.heightMargin;
 }
 
