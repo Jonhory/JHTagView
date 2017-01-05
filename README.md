@@ -32,8 +32,8 @@ demo里面写了如何展示相同宽度的标签。
   selectedTitleColor:[UIColor whiteColor]];
 `
 
- |配置布局样式|
- |:------:|:------:|
+|配置布局样式|
+|:------:|:------:|
 |maxWidth |视图最大宽度|
 |margin |按钮间距|
 | isEnable|按钮是否可点击|
