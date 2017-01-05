@@ -17,7 +17,7 @@ demo里面写了如何展示相同宽度的标签。
 
   2 配置一些属性
 
-| 配置按钮样式信息|
+| 配置按钮样式信息||
 |:------:|:------:|
 |normarlBackColor|正常背景颜色|
 |normalTitleColor|正常文字颜色|
@@ -32,7 +32,7 @@ demo里面写了如何展示相同宽度的标签。
   selectedTitleColor:[UIColor whiteColor]];
 `
 
-|配置布局样式|
+|配置布局样式||
 |:------:|:------:|
 |maxWidth |视图最大宽度|
 |margin |按钮间距|
