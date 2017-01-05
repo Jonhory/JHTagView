@@ -22,5 +22,6 @@
 @property (nonatomic ,assign) CGFloat heightMargin;//高度增量
 
 + (instancetype)random;
++ (instancetype)randomSameWidth;
 
 @end

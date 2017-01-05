@@ -64,10 +64,19 @@
 
 - (void)btnC{
     [self.tagModels removeAllObjects];
-    for (int i = 0; i<arc4random()%50+10; i++) {
-        JHTagModel * model = [JHTagModel random];
-        [self.tagModels addObject:model];
+    if (arc4random()%2 == 0) {
+        for (int i = 0; i<arc4random()%50+10; i++) {
+            JHTagModel * model = [JHTagModel random];
+            [self.tagModels addObject:model];
+        }
+    }else{
+        //展示相同宽度
+        for (int i = 0; i<arc4random()%50+10; i++) {
+            JHTagModel * model = [JHTagModel randomSameWidth];
+            [self.tagModels addObject:model];
+        }
     }
+    
     [_tagView removeFromSuperview];
     
     self.tagView = [[JHTagView alloc]initWithFrame:CGRectMake(0, 0, SCREEN.width - 60, 200)];

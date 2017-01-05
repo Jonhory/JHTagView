@@ -49,6 +49,14 @@
     return model;
 }
 
++ (instancetype)randomSameWidth{
+    JHTagModel * model = [self random];
+    CGFloat tagViewWidth = [UIScreen mainScreen].bounds.size.width - 60;
+    CGFloat tagViewSureWidth = tagViewWidth - model.widthMargin * 2;
+    //展示相同宽度 只要计算好每个标签的宽度即可.
+    model.width = tagViewSureWidth / 3;
+    return model;
+}
 
 + (NSString *)randomStrWithLength:(int)length{
     NSString *string = [[NSString alloc]init];

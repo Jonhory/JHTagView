@@ -19,15 +19,6 @@
 }
 @end
 
-@interface JHDisableHighlightBtn : UIButton
-@end
-
-@implementation JHDisableHighlightBtn
-- (void)setHidden:(BOOL)hidden{
-    
-}
-@end
-
 @interface JHTagView ()
 
 @property (nonatomic ,strong) NSMutableArray * frameArr;
