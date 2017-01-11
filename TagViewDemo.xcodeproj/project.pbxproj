@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BBBCC9201E25B2BD00474363 /* TableViewDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCC91F1E25B2BD00474363 /* TableViewDemo.m */; };
+		BBBCC9231E25B4C800474363 /* TagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCC9221E25B4C800474363 /* TagTableViewCell.m */; };
+		BBBCC9261E25B54000474363 /* DemoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCC9251E25B54000474363 /* DemoModel.m */; };
 		BBEC60A01E003E9A0090AE90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBEC609F1E003E9A0090AE90 /* main.m */; };
 		BBEC60A31E003E9A0090AE90 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBEC60A21E003E9A0090AE90 /* AppDelegate.m */; };
 		BBEC60A61E003E9A0090AE90 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBEC60A51E003E9A0090AE90 /* ViewController.m */; };
@@ -18,6 +21,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BBBCC91E1E25B2BD00474363 /* TableViewDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewDemo.h; sourceTree = "<group>"; };
+		BBBCC91F1E25B2BD00474363 /* TableViewDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewDemo.m; sourceTree = "<group>"; };
+		BBBCC9211E25B4C800474363 /* TagTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagTableViewCell.h; sourceTree = "<group>"; };
+		BBBCC9221E25B4C800474363 /* TagTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagTableViewCell.m; sourceTree = "<group>"; };
+		BBBCC9241E25B54000474363 /* DemoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoModel.h; sourceTree = "<group>"; };
+		BBBCC9251E25B54000474363 /* DemoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoModel.m; sourceTree = "<group>"; };
 		BBEC609B1E003E9A0090AE90 /* TagViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TagViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBEC609F1E003E9A0090AE90 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BBEC60A11E003E9A0090AE90 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -69,6 +78,12 @@
 				BBEC60A21E003E9A0090AE90 /* AppDelegate.m */,
 				BBEC60A41E003E9A0090AE90 /* ViewController.h */,
 				BBEC60A51E003E9A0090AE90 /* ViewController.m */,
+				BBBCC91E1E25B2BD00474363 /* TableViewDemo.h */,
+				BBBCC91F1E25B2BD00474363 /* TableViewDemo.m */,
+				BBBCC9211E25B4C800474363 /* TagTableViewCell.h */,
+				BBBCC9221E25B4C800474363 /* TagTableViewCell.m */,
+				BBBCC9241E25B54000474363 /* DemoModel.h */,
+				BBBCC9251E25B54000474363 /* DemoModel.m */,
 				BBEC60A71E003E9A0090AE90 /* Main.storyboard */,
 				BBEC60AA1E003E9A0090AE90 /* Assets.xcassets */,
 				BBEC60AC1E003E9A0090AE90 /* LaunchScreen.storyboard */,
@@ -169,9 +184,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBEC60BB1E003F320090AE90 /* JHTagView.m in Sources */,
+				BBBCC9231E25B4C800474363 /* TagTableViewCell.m in Sources */,
 				BBEC60A61E003E9A0090AE90 /* ViewController.m in Sources */,
 				BBEC60A31E003E9A0090AE90 /* AppDelegate.m in Sources */,
+				BBBCC9261E25B54000474363 /* DemoModel.m in Sources */,
 				BBEC60B81E003EF60090AE90 /* JHTagModel.m in Sources */,
+				BBBCC9201E25B2BD00474363 /* TableViewDemo.m in Sources */,
 				BBEC60A01E003E9A0090AE90 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

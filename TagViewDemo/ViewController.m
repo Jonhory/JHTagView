@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "JHTagModel.h"
 #import "JHTagView.h"
+#import "TableViewDemo.h"
 
 #define SCREEN [UIScreen mainScreen].bounds.size
 
@@ -47,19 +48,28 @@
         JHTagModel * model = [JHTagModel random];
         [self.tagModels addObject:model];
     }
-    self.tagView = [[JHTagView alloc]initWithFrame:CGRectMake(0, 0, SCREEN.width - 60, 200)];
-    self.tagView.center = self.view.center;
+    self.tagView = [[JHTagView alloc]initWithFrame:CGRectMake(40, 100, SCREEN.width - 60, 200)];
     self.tagView.backgroundColor = [UIColor randomColor];
     self.tagView.margin = 10;
     self.tagView.tagModels = self.tagModels;
     [self.view addSubview:self.tagView];
     
-    UIButton * btn = [[UIButton alloc]initWithFrame:CGRectMake(100, 600, 100, 50)];
+    UIButton * btn = [[UIButton alloc]initWithFrame:CGRectMake(100, SCREEN.height - 100, 150, 50)];
     btn.backgroundColor = [UIColor randomColor];
     [btn setTitle:@"点我点我" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(btnC) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     
+    UIButton * btn2 = [[UIButton alloc]initWithFrame:CGRectMake(100, SCREEN.height - 150, 150, 50)];
+    btn2.backgroundColor = [UIColor randomColor];
+    [btn2 setTitle:@"go TableView" forState:UIControlStateNormal];
+    [btn2 addTarget:self action:@selector(btnDemo) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn2];
+}
+
+- (void)btnDemo{
+    TableViewDemo * demo = [[TableViewDemo alloc]init];
+    [self presentViewController:demo animated:YES completion:nil];
 }
 
 - (void)btnC{
