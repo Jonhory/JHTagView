@@ -50,8 +50,9 @@
     }
     self.tagView = [[JHTagView alloc]initWithFrame:CGRectMake(40, 100, SCREEN.width - 60, 200)];
     self.tagView.backgroundColor = [UIColor randomColor];
-    self.tagView.margin = 10;
     self.tagView.tagModels = self.tagModels;
+    [self.tagView configWithNormalBackColor:[UIColor whiteColor] normalTitleColor:[UIColor blackColor] normalBorderColor:[UIColor redColor] AndSelectedBackColor:[UIColor orangeColor] selectedTitleColor:[UIColor whiteColor]];
+    [self.tagView configMaxWidth:SCREEN.width - 60 horizontalMargin:10 verticalMargin:15 buttonIsEnable:NO borderWidth:0.5 cornerRadius:4];
     [self.view addSubview:self.tagView];
     
     UIButton * btn = [[UIButton alloc]initWithFrame:CGRectMake(100, SCREEN.height - 100, 150, 50)];
@@ -60,11 +61,11 @@
     [btn addTarget:self action:@selector(btnC) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     
-    UIButton * btn2 = [[UIButton alloc]initWithFrame:CGRectMake(100, SCREEN.height - 150, 150, 50)];
-    btn2.backgroundColor = [UIColor randomColor];
-    [btn2 setTitle:@"go TableView" forState:UIControlStateNormal];
-    [btn2 addTarget:self action:@selector(btnDemo) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn2];
+//    UIButton * btn2 = [[UIButton alloc]initWithFrame:CGRectMake(100, SCREEN.height - 150, 150, 50)];
+//    btn2.backgroundColor = [UIColor randomColor];
+//    [btn2 setTitle:@"go TableView" forState:UIControlStateNormal];
+//    [btn2 addTarget:self action:@selector(btnDemo) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:btn2];
 }
 
 - (void)btnDemo{
@@ -93,7 +94,7 @@
     //配置一
     [self.tagView configWithNormalBackColor:[UIColor whiteColor] normalTitleColor:[UIColor blackColor] normalBorderColor:[UIColor redColor] AndSelectedBackColor:[UIColor orangeColor] selectedTitleColor:[UIColor whiteColor]];
     //配置二
-    [self.tagView configMaxWidth:self.tagView.bounds.size.width margin:10 buttonIsEnable:YES borderWidth:0.5 cornerRadius:4];
+    [self.tagView configMaxWidth:self.tagView.bounds.size.width horizontalMargin:10 verticalMargin:arc4random()%20 buttonIsEnable:YES borderWidth:0.5 cornerRadius:4];
     
     self.tagView.backgroundColor = [UIColor randomColor];
 

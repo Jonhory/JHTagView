@@ -33,6 +33,8 @@
 @property (nonatomic ,assign) BOOL isEnable;
 @property (nonatomic ,assign) CGFloat borderWidth;
 @property (nonatomic ,assign) CGFloat cornerRadius;
+@property (nonatomic ,assign) CGFloat horizontalMargin;//按钮水平间距
+@property (nonatomic ,assign) CGFloat verticalMargin;//按钮垂直间距
 
 @end
 
@@ -53,9 +55,10 @@
     return _frameArr;
 }
 
-- (void)configMaxWidth:(CGFloat)maxWidth margin:(CGFloat)margin buttonIsEnable:(BOOL)isEnable borderWidth:(CGFloat)borderWidth cornerRadius:(CGFloat)cornerRadius{
+- (void)configMaxWidth:(CGFloat)maxWidth horizontalMargin:(CGFloat)horizontalMargin verticalMargin:(CGFloat)verticalMargin buttonIsEnable:(BOOL)isEnable borderWidth:(CGFloat)borderWidth cornerRadius:(CGFloat)cornerRadius{
     self.maxWidth = maxWidth;
-    self.margin = margin;
+    self.horizontalMargin = horizontalMargin;
+    self.verticalMargin = verticalMargin;
     self.isEnable = isEnable;
     self.borderWidth = borderWidth;
     self.cornerRadius = cornerRadius;
@@ -109,12 +112,12 @@
         }
         [self.frameArr addObject:btn];
         
-        totalWidth = totalWidth + model.width + self.margin;
+        totalWidth = totalWidth + model.width + self.horizontalMargin;
         
         if (i+1 < tagModels.count) {
             JHTagModel * nextModel = tagModels[i+1];
             if (totalWidth + nextModel.width  > self.maxWidth) {
-                totalHeight = totalHeight + self.margin + model.height;
+                totalHeight = totalHeight + self.verticalMargin + model.height;
                 totalWidth = 0;
             }
         }

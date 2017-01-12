@@ -11,7 +11,6 @@
 
 @interface JHTagView : UIView
 
-@property (nonatomic ,assign) CGFloat margin;//button间距
 @property (nonatomic ,assign) CGFloat maxWidth;//最大宽度
 @property (nonatomic ,strong) NSArray <JHTagModel *>* tagModels;
 
@@ -24,17 +23,17 @@
  */
 - (CGFloat)getMaxHeightWithModels:(NSArray<JHTagModel *> *)tagModels;
 
-
 /**
  配置布局样式
- 
- @param maxWidth 视图最大宽度
- @param margin 按钮间距
+
+ @param maxWidth  视图最大宽度
+ @param horizontalMargin 按钮水平间距
+ @param verticalMargin 按钮垂直间距
  @param isEnable 按钮是否可点击
  @param borderWidth 边线宽
- @Param cornerRadius 圆角
+ @param cornerRadius 圆角
  */
-- (void)configMaxWidth:(CGFloat)maxWidth margin:(CGFloat)margin buttonIsEnable:(BOOL)isEnable borderWidth:(CGFloat)borderWidth cornerRadius:(CGFloat)cornerRadius;
+- (void)configMaxWidth:(CGFloat)maxWidth horizontalMargin:(CGFloat)horizontalMargin verticalMargin:(CGFloat)verticalMargin buttonIsEnable:(BOOL)isEnable borderWidth:(CGFloat)borderWidth cornerRadius:(CGFloat)cornerRadius;
 
 /**
  配置按钮样式信息
