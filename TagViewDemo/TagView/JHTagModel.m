@@ -41,6 +41,7 @@
 + (instancetype)random{
     JHTagModel * model = [[JHTagModel alloc]init];
     model.text = [self randomStrWithLength:arc4random()%8+1];
+    model.height = arc4random()%50+10;
     model.font = 15;
     model.widthMargin = 10;
     model.heightMargin = 5;

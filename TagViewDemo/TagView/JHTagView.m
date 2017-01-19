@@ -88,6 +88,8 @@
 - (CGFloat)getMaxHeightWithModels:(NSArray<JHTagModel *> *)tagModels{
     CGFloat totalWidth = 0;//前面的X
     CGFloat totalHeight = 0;//总高度
+    CGFloat horizontalMaxHeight = 0;//水平方向最大高度
+    
     for (int i = 0; i<tagModels.count; i++) {
         JHTagModel * model = tagModels[i];
         CGRect frame = CGRectMake(totalWidth, totalHeight, model.width, model.height);
@@ -113,16 +115,20 @@
         [self.frameArr addObject:btn];
         
         totalWidth = totalWidth + model.width + self.horizontalMargin;
+        if (model.height > horizontalMaxHeight) {
+            horizontalMaxHeight = model.height;
+        }
         
         if (i+1 < tagModels.count) {
             JHTagModel * nextModel = tagModels[i+1];
-            if (totalWidth + nextModel.width  > self.maxWidth) {
-                totalHeight = totalHeight + self.verticalMargin + model.height;
+            if (totalWidth + nextModel.width  > self.maxWidth) {//换行
+                totalHeight = totalHeight + self.verticalMargin + horizontalMaxHeight;
                 totalWidth = 0;
+                horizontalMaxHeight = 0;
             }
         }
     }
-    totalHeight += tagModels.firstObject.height;
+    totalHeight += horizontalMaxHeight;
     return totalHeight;
 }
 
