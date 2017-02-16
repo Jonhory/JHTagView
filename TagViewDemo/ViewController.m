@@ -64,7 +64,7 @@
 
 #pragma mark - JHTagViewDelegate
 - (void)jh_tagViewClicked:(JHTagModel *)model isSelected:(BOOL)isSelected{
-    
+    NSLog(@"%@",model.text);
 }
 
 - (void)btnDemo{

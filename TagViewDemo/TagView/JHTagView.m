@@ -7,6 +7,7 @@
 //
 
 #import "JHTagView.h"
+#import "JHTagSingleView.h"
 
 @implementation UIColor (RandomColor)
 
@@ -19,7 +20,7 @@
 }
 @end
 
-@interface JHTagView ()
+@interface JHTagView ()<JHTagSingleViewDelegate>
 
 @property (nonatomic ,strong) NSMutableArray * frameArr;
 
@@ -80,7 +81,7 @@
         [self getMaxHeightWithModels:tagModels];
     }
     for (int i = 0; i<tagModels.count; i++) {
-        UIButton * btn = self.frameArr[i];
+        JHTagSingleView * btn = self.frameArr[i];
         [self addSubview:btn];
     }
 }
@@ -94,34 +95,19 @@
         JHTagModel * model = tagModels[i];
         CGRect frame = CGRectMake(totalWidth, totalHeight, model.width, model.height);
         
-        UIButton * btn = [[UIButton alloc]initWithFrame:frame];
-        
-        [btn setTitle:model.text forState:UIControlStateNormal];
-        btn.titleLabel.font = [UIFont systemFontOfSize:model.font];
-        btn.layer.cornerRadius = self.cornerRadius;
-        btn.layer.masksToBounds = YES;
-        
-        btn.selected = model.isSelect;
-        btn.adjustsImageWhenHighlighted = NO;
-        btn.tag = JHTagViewTagFirst + i;
-        
-        [btn setTitleColor:self.kJHTagNormalTitleColor forState:UIControlStateNormal];
-        [btn setTitleColor:self.kJHTagSelectTitleColor forState:UIControlStateSelected];
-        
-        [self handleBtn:btn];
-        
-        if (self.isEnable) {
-            [btn addTarget:self action:@selector(jhTagViewBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-        }
+        JHTagSingleView * btn = [[JHTagSingleView alloc]initWithFrame:frame];
+        btn.model = model;
+        btn.delegate = self;
+        btn.backgroundColor = self.backgroundColor;
         
         [self.frameArr addObject:btn];
         
         totalWidth = totalWidth + btn.bounds.size.width + self.horizontalMargin;
         if (btn.bounds.size.height > horizontalMaxHeight) {
             horizontalMaxHeight = btn.bounds.size.height;
-            if (model.type == JHTagViewEdit) {
-                horizontalMaxHeight += 17;
-            }
+//            if (model.type == JHTagViewEdit) {
+//                horizontalMaxHeight += 17;
+//            }
         }
         
         if (i+1 < tagModels.count) {
@@ -137,23 +123,9 @@
     return totalHeight;
 }
 
-- (void)jhTagViewBtnClicked:(UIButton *)btn{
-    btn.selected = !btn.selected;
-    [self handleBtn:btn];
-    
+- (void)jh_tagSingleViewClicked:(JHTagModel *)model isSelected:(BOOL)isSelected{
     if (self.delegate && [self.delegate respondsToSelector:@selector(jh_tagViewClicked:isSelected:)] && _tagModels.count > 0) {
-        [self.delegate jh_tagViewClicked:_tagModels[btn.tag - JHTagViewTagFirst] isSelected:btn.selected];
-    }
-}
-
-- (void)handleBtn:(UIButton *)btn{
-    if (btn.selected) {
-        btn.backgroundColor = self.kJHTagSelectBackColor;
-        btn.layer.borderWidth = 0;
-    }else{
-        btn.backgroundColor = self.kJHTagNormalBackColor;
-        btn.layer.borderColor = self.kJHTagNormalBorderColor.CGColor;
-        btn.layer.borderWidth = self.borderWidth;
+        [self.delegate jh_tagViewClicked:model isSelected:isSelected];
     }
 }
 

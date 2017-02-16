@@ -16,8 +16,8 @@ typedef NS_ENUM(NSUInteger ,JHTagViewType){
 
 @interface JHTagModel : NSObject
 
-@property (nonatomic ,copy) NSString * text;//文字
-@property(nonatomic, assign) JHTagViewType type;//样式类型
+@property (nonatomic ,copy) NSString *text;//文字
+@property (nonatomic, assign) JHTagViewType type;//样式类型
 
 @property (nonatomic ,assign) BOOL isSelect;//是否选中
 @property (nonatomic ,assign) CGFloat font;//文字大小
@@ -26,6 +26,17 @@ typedef NS_ENUM(NSUInteger ,JHTagViewType){
 @property (nonatomic ,assign) CGFloat height;//视图高度
 @property (nonatomic ,assign) CGFloat widthMargin;//宽度增量
 @property (nonatomic ,assign) CGFloat heightMargin;//高度增量
+
+@property(nonatomic, assign) BOOL isAbleToSelect;/**< 是否点击后设为选中 */
+
+@property (nonatomic, assign) CGFloat cornerRadius;//圆角
+@property (nonatomic, assign) CGFloat borderWidth;/**< 边线宽 */
+@property (nonatomic, copy) UIColor *normalBorderColor;/**< 普通边框颜色 */
+
+@property (nonatomic, copy) UIColor *normalTitleColor;/**< 普通状态文字颜色 */
+@property (nonatomic, copy) UIColor *normalBackgroundColor;/**< 普通背景颜色 */
+@property (nonatomic, copy) UIColor *selectTitleColor;/**< 选中状态文字颜色 */
+@property (nonatomic, copy) UIColor *selectBackgroundColor;/**< 选中背景颜色 */
 
 + (instancetype)random;
 + (instancetype)randomSameWidth;

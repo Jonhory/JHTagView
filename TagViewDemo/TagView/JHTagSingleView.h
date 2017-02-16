@@ -9,6 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "JHTagModel.h"
 
+@protocol JHTagSingleViewDelegate <NSObject>
+
+- (void)jh_tagSingleViewClicked:(JHTagModel *)model isSelected:(BOOL)isSelected;
+
+@end
+
 @interface JHTagSingleView : UIView
+
+@property(nonatomic, weak) id<JHTagSingleViewDelegate> delegate;
+
+@property(nonatomic, strong) JHTagModel *model;
 
 @end

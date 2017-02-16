@@ -15,10 +15,6 @@
 
 @end
 
-typedef NS_ENUM(NSUInteger ,JHTagViewTag) {
-    JHTagViewTagFirst = 520,
-};
-
 @interface JHTagView : UIView
 
 @property(nonatomic, weak) id<JHTagViewDelegate> delegate;

@@ -37,6 +37,54 @@
     return self.size.height + self.heightMargin;
 }
 
+- (CGFloat)cornerRadius{
+    if (_cornerRadius) {
+        return _cornerRadius;
+    }
+    return self.height / 2;
+}
+
+- (CGFloat)borderWidth{
+    if (_borderWidth) {
+        return _borderWidth;
+    }
+    return 0.5;
+}
+
+- (UIColor *)normalBorderColor{
+    if (_normalBorderColor) {
+        return _normalBorderColor;
+    }
+    return [UIColor orangeColor];
+}
+
+- (UIColor *)normalTitleColor{
+    if (_normalTitleColor) {
+        return _normalTitleColor;
+    }
+    return [UIColor orangeColor];
+}
+
+- (UIColor *)normalBackgroundColor{
+    if (_normalBackgroundColor) {
+        return _normalBackgroundColor;
+    }
+    return [UIColor whiteColor];
+}
+
+- (UIColor *)selectTitleColor{
+    if (_selectTitleColor) {
+        return _selectTitleColor;
+    }
+    return [UIColor whiteColor];
+}
+
+- (UIColor *)selectBackgroundColor{
+    if (_selectBackgroundColor) {
+        return _selectBackgroundColor;
+    }
+    return [UIColor orangeColor];
+}
 
 + (instancetype)random{
     JHTagModel * model = [[JHTagModel alloc]init];
@@ -45,9 +93,9 @@
     model.font = 16;
     model.widthMargin = 10;
     model.heightMargin = 5;
-    model.isSelect = NO;
+    model.isSelect = arc4random()%2;
     model.type = JHTagViewEdit;
-    
+    model.isAbleToSelect = YES;
     return model;
 }
 
