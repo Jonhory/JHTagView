@@ -103,6 +103,7 @@
         
         btn.selected = model.isSelect;
         btn.adjustsImageWhenHighlighted = NO;
+        btn.tag = JHTagViewTagFirst + i;
         
         [btn setTitleColor:self.kJHTagNormalTitleColor forState:UIControlStateNormal];
         [btn setTitleColor:self.kJHTagSelectTitleColor forState:UIControlStateSelected];
@@ -112,11 +113,15 @@
         if (self.isEnable) {
             [btn addTarget:self action:@selector(jhTagViewBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
         }
+        
         [self.frameArr addObject:btn];
         
-        totalWidth = totalWidth + model.width + self.horizontalMargin;
-        if (model.height > horizontalMaxHeight) {
-            horizontalMaxHeight = model.height;
+        totalWidth = totalWidth + btn.bounds.size.width + self.horizontalMargin;
+        if (btn.bounds.size.height > horizontalMaxHeight) {
+            horizontalMaxHeight = btn.bounds.size.height;
+            if (model.type == JHTagViewEdit) {
+                horizontalMaxHeight += 17;
+            }
         }
         
         if (i+1 < tagModels.count) {
@@ -135,6 +140,10 @@
 - (void)jhTagViewBtnClicked:(UIButton *)btn{
     btn.selected = !btn.selected;
     [self handleBtn:btn];
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(jh_tagViewClicked:isSelected:)] && _tagModels.count > 0) {
+        [self.delegate jh_tagViewClicked:_tagModels[btn.tag - JHTagViewTagFirst] isSelected:btn.selected];
+    }
 }
 
 - (void)handleBtn:(UIButton *)btn{
@@ -147,5 +156,6 @@
         btn.layer.borderWidth = self.borderWidth;
     }
 }
+
 
 @end

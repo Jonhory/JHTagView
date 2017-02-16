@@ -25,7 +25,7 @@
 }
 @end
 
-@interface ViewController ()
+@interface ViewController ()<JHTagViewDelegate>
 
 @property (nonatomic ,strong) NSMutableArray * tagModels;
 @property (nonatomic ,strong) JHTagView * tagView;
@@ -60,12 +60,11 @@
     [btn setTitle:@"点我点我" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(btnC) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
+}
+
+#pragma mark - JHTagViewDelegate
+- (void)jh_tagViewClicked:(JHTagModel *)model isSelected:(BOOL)isSelected{
     
-//    UIButton * btn2 = [[UIButton alloc]initWithFrame:CGRectMake(100, SCREEN.height - 150, 150, 50)];
-//    btn2.backgroundColor = [UIColor randomColor];
-//    [btn2 setTitle:@"go TableView" forState:UIControlStateNormal];
-//    [btn2 addTarget:self action:@selector(btnDemo) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:btn2];
 }
 
 - (void)btnDemo{
@@ -75,26 +74,21 @@
 
 - (void)btnC{
     [self.tagModels removeAllObjects];
-    if (arc4random()%2 == 0) {
-        for (int i = 0; i<arc4random()%50+10; i++) {
-            JHTagModel * model = [JHTagModel random];
-            [self.tagModels addObject:model];
-        }
-    }else{
-        //展示相同宽度
-        for (int i = 0; i<arc4random()%50+10; i++) {
-            JHTagModel * model = [JHTagModel randomSameWidth];
-            [self.tagModels addObject:model];
-        }
+    //展示相同宽度
+    for (int i = 0; i<arc4random()%50+10; i++) {
+        JHTagModel * model = [JHTagModel randomSameWidth];
+        [self.tagModels addObject:model];
     }
-    
+
     [_tagView removeFromSuperview];
     
     self.tagView = [[JHTagView alloc]initWithFrame:CGRectMake(0, 0, SCREEN.width - 60, 200)];
+    UIColor * myColor = [UIColor colorWithRed:0 green:211/255.0 blue:197/255.0 alpha:1.0];
+    
     //配置一
-    [self.tagView configWithNormalBackColor:[UIColor whiteColor] normalTitleColor:[UIColor blackColor] normalBorderColor:[UIColor redColor] AndSelectedBackColor:[UIColor orangeColor] selectedTitleColor:[UIColor whiteColor]];
+    [self.tagView configWithNormalBackColor:[UIColor whiteColor] normalTitleColor:myColor normalBorderColor:myColor AndSelectedBackColor:[UIColor whiteColor] selectedTitleColor:[UIColor orangeColor]];
     //配置二
-    [self.tagView configMaxWidth:self.tagView.bounds.size.width horizontalMargin:10 verticalMargin:arc4random()%20 buttonIsEnable:YES borderWidth:0.5 cornerRadius:4];
+    [self.tagView configMaxWidth:self.tagView.bounds.size.width horizontalMargin:10 verticalMargin:20 buttonIsEnable:YES borderWidth:0.5 cornerRadius:15];
     
     self.tagView.backgroundColor = [UIColor randomColor];
 
@@ -106,6 +100,7 @@
     self.tagView.frame = CGRectMake(0, 0, SCREEN.width - 60, height);
     
     self.tagView.center = self.view.center;
+    self.tagView.delegate = self;
 
     [self.view addSubview:self.tagView];
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB0635621E55B8A000D5D5C0 /* btn_delete_tag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB0635611E55B8A000D5D5C0 /* btn_delete_tag@2x.png */; };
+		BB0635641E55B8A800D5D5C0 /* btn_delete_tag@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BB0635631E55B8A800D5D5C0 /* btn_delete_tag@3x.png */; };
+		BB0635671E55BBD200D5D5C0 /* JHTagSingleView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0635661E55BBD200D5D5C0 /* JHTagSingleView.m */; };
 		BBBCC9201E25B2BD00474363 /* TableViewDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCC91F1E25B2BD00474363 /* TableViewDemo.m */; };
 		BBBCC9231E25B4C800474363 /* TagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCC9221E25B4C800474363 /* TagTableViewCell.m */; };
 		BBBCC9261E25B54000474363 /* DemoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBCC9251E25B54000474363 /* DemoModel.m */; };
@@ -21,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB0635611E55B8A000D5D5C0 /* btn_delete_tag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_delete_tag@2x.png"; sourceTree = "<group>"; };
+		BB0635631E55B8A800D5D5C0 /* btn_delete_tag@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_delete_tag@3x.png"; sourceTree = "<group>"; };
+		BB0635651E55BBD200D5D5C0 /* JHTagSingleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHTagSingleView.h; sourceTree = "<group>"; };
+		BB0635661E55BBD200D5D5C0 /* JHTagSingleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHTagSingleView.m; sourceTree = "<group>"; };
 		BBBCC91E1E25B2BD00474363 /* TableViewDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewDemo.h; sourceTree = "<group>"; };
 		BBBCC91F1E25B2BD00474363 /* TableViewDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewDemo.m; sourceTree = "<group>"; };
 		BBBCC9211E25B4C800474363 /* TagTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagTableViewCell.h; sourceTree = "<group>"; };
@@ -104,10 +111,14 @@
 		BBEC60B51E003EEC0090AE90 /* TagView */ = {
 			isa = PBXGroup;
 			children = (
+				BB0635611E55B8A000D5D5C0 /* btn_delete_tag@2x.png */,
+				BB0635631E55B8A800D5D5C0 /* btn_delete_tag@3x.png */,
 				BBEC60B61E003EF60090AE90 /* JHTagModel.h */,
 				BBEC60B71E003EF60090AE90 /* JHTagModel.m */,
 				BBEC60B91E003F320090AE90 /* JHTagView.h */,
 				BBEC60BA1E003F320090AE90 /* JHTagView.m */,
+				BB0635651E55BBD200D5D5C0 /* JHTagSingleView.h */,
+				BB0635661E55BBD200D5D5C0 /* JHTagSingleView.m */,
 			);
 			path = TagView;
 			sourceTree = "<group>";
@@ -172,7 +183,9 @@
 			files = (
 				BBEC60AE1E003E9A0090AE90 /* LaunchScreen.storyboard in Resources */,
 				BBEC60AB1E003E9A0090AE90 /* Assets.xcassets in Resources */,
+				BB0635641E55B8A800D5D5C0 /* btn_delete_tag@3x.png in Resources */,
 				BBEC60A91E003E9A0090AE90 /* Main.storyboard in Resources */,
+				BB0635621E55B8A000D5D5C0 /* btn_delete_tag@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBEC60BB1E003F320090AE90 /* JHTagView.m in Sources */,
+				BB0635671E55BBD200D5D5C0 /* JHTagSingleView.m in Sources */,
 				BBBCC9231E25B4C800474363 /* TagTableViewCell.m in Sources */,
 				BBEC60A61E003E9A0090AE90 /* ViewController.m in Sources */,
 				BBEC60A31E003E9A0090AE90 /* AppDelegate.m in Sources */,

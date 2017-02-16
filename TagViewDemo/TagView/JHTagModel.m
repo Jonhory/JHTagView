@@ -41,11 +41,12 @@
 + (instancetype)random{
     JHTagModel * model = [[JHTagModel alloc]init];
     model.text = [self randomStrWithLength:arc4random()%8+1];
-    model.height = arc4random()%50+10;
-    model.font = 15;
+    model.height = 30;
+    model.font = 16;
     model.widthMargin = 10;
     model.heightMargin = 5;
-    model.isSelect = arc4random()%2;
+    model.isSelect = NO;
+    model.type = JHTagViewEdit;
     
     return model;
 }

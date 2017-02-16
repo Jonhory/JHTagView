@@ -9,11 +9,21 @@
 #import <UIKit/UIKit.h>
 #import "JHTagModel.h"
 
+@protocol JHTagViewDelegate <NSObject>
+
+- (void)jh_tagViewClicked:(JHTagModel *)model isSelected:(BOOL)isSelected;
+
+@end
+
+typedef NS_ENUM(NSUInteger ,JHTagViewTag) {
+    JHTagViewTagFirst = 520,
+};
+
 @interface JHTagView : UIView
 
+@property(nonatomic, weak) id<JHTagViewDelegate> delegate;
 @property (nonatomic ,assign) CGFloat maxWidth;//最大宽度
 @property (nonatomic ,strong) NSArray <JHTagModel *>* tagModels;
-
 
 /**
  先计算后赋值

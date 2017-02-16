@@ -9,9 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger ,JHTagViewType){
+    JHTagViewNormal       ,//默认样式
+    JHTagViewEdit         ,//可编辑样式，右上角有❌的按钮
+};
+
 @interface JHTagModel : NSObject
 
 @property (nonatomic ,copy) NSString * text;//文字
+@property(nonatomic, assign) JHTagViewType type;//样式类型
 
 @property (nonatomic ,assign) BOOL isSelect;//是否选中
 @property (nonatomic ,assign) CGFloat font;//文字大小
