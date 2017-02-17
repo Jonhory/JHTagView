@@ -63,7 +63,7 @@
 }
 
 
-- (void)setTagModels:(NSArray<JHTagModel *> *)tagModels{
+- (void)setTagModels:(NSMutableArray<JHTagModel *> *)tagModels{
     _tagModels = tagModels;
     
     if (self.frameArr.count != tagModels.count) {
@@ -80,11 +80,20 @@
     CGFloat totalHeight = 0;//总高度
     CGFloat horizontalMaxHeight = 0;//水平方向最大高度
     
+    BOOL isAutoY = NO;
     for (int i = 0; i<tagModels.count; i++) {
         JHTagModel * model = tagModels[i];
+        
+        if (model.type == JHTagViewEdit) {
+            isAutoY = YES;
+        }
+        
         CGRect frame = CGRectMake(totalWidth, totalHeight, model.width, model.height);
         
         JHTagSingleView * btn = [[JHTagSingleView alloc]initWithFrame:frame];
+        if (isAutoY) {
+            btn.autoOffsetY = 33/4;
+        }
         btn.model = model;
         btn.delegate = self;
         btn.backgroundColor = self.backgroundColor;
@@ -112,11 +121,31 @@
     return totalHeight;
 }
 
+- (void)reloadData{
+    for (UIView * subView in self.subviews) {
+        [subView removeFromSuperview];
+    }
+    [self.frameArr removeAllObjects];
+    
+    CGFloat height = [self getMaxHeightWithModels:self.tagModels];
+    for (int i = 0; i<self.tagModels.count; i++) {
+        JHTagSingleView * btn = self.frameArr[i];
+        [self addSubview:btn];
+    }
+    //重置高度
+    self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
+}
+
 - (void)jh_tagSingleViewClicked:(JHTagModel *)model isSelected:(BOOL)isSelected{
     if (self.delegate && [self.delegate respondsToSelector:@selector(jh_tagViewClicked:isSelected:)] && _tagModels.count > 0) {
         [self.delegate jh_tagViewClicked:model isSelected:isSelected];
     }
 }
 
+- (void)jh_tagSingleViewRemoved:(JHTagModel *)model{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(jh_tagViewRemoved:)]) {
+        [self.delegate jh_tagViewRemoved:model];
+    }
+}
 
 @end

@@ -11,7 +11,9 @@
 
 @protocol JHTagViewDelegate <NSObject>
 
+@optional
 - (void)jh_tagViewClicked:(JHTagModel *)model isSelected:(BOOL)isSelected;
+- (void)jh_tagViewRemoved:(JHTagModel *)model;
 
 @end
 
@@ -19,7 +21,7 @@
 
 @property(nonatomic, weak) id<JHTagViewDelegate> delegate;
 @property (nonatomic ,assign) CGFloat maxWidth;//最大宽度
-@property (nonatomic ,strong) NSArray <JHTagModel *>* tagModels;
+@property (nonatomic ,strong) NSMutableArray <JHTagModel *>* tagModels;
 
 /**
  先计算后赋值
@@ -39,5 +41,6 @@
  */
 - (void)configMaxWidth:(CGFloat)maxWidth horizontalMargin:(CGFloat)horizontalMargin verticalMargin:(CGFloat)verticalMargin;
 
+- (void)reloadData;
 
 @end

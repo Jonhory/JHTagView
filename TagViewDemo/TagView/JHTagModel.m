@@ -20,7 +20,7 @@
 
 - (void)setFont:(CGFloat)font{
     _font = font;
-    self.size = [self.text sizeWithAttributes: @{NSFontAttributeName: [UIFont systemFontOfSize:self.font]}];
+    self.size = [self.text sizeWithAttributes: @{NSFontAttributeName: [UIFont systemFontOfSize:font]}];
 }
 
 - (CGFloat)width{
@@ -103,9 +103,8 @@
     model.font = 16;
     model.widthMargin = 10;
     model.heightMargin = 5;
-    model.isSelect = arc4random()%2;
     model.type = JHTagViewEdit;
-    model.isAbleToSelect = YES;
+    model.isAbleToSelect = NO;
     return model;
 }
 

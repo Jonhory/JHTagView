@@ -11,7 +11,9 @@
 
 @protocol JHTagSingleViewDelegate <NSObject>
 
+@optional
 - (void)jh_tagSingleViewClicked:(JHTagModel *)model isSelected:(BOOL)isSelected;
+- (void)jh_tagSingleViewRemoved:(JHTagModel *)model;
 
 @end
 
@@ -20,5 +22,7 @@
 @property(nonatomic, weak) id<JHTagSingleViewDelegate> delegate;
 
 @property(nonatomic, strong) JHTagModel *model;
+
+@property(nonatomic, assign) CGFloat autoOffsetY;/**< 当标签类型含有可移除类型时，需要修改别的类型的Y值 */
 
 @end

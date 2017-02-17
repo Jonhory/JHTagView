@@ -12,6 +12,7 @@
 typedef NS_ENUM(NSUInteger ,JHTagViewType){
     JHTagViewNormal       ,//默认样式
     JHTagViewEdit         ,//可编辑样式，右上角有❌的按钮
+    JHTagViewCustom       ,//虚线边框
 };
 
 @interface JHTagModel : NSObject

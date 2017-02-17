@@ -61,11 +61,19 @@
     [btn setTitle:@"点我点我" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(btnC) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
+    
+    self.view.backgroundColor = [UIColor darkGrayColor];
 }
 
 #pragma mark - JHTagViewDelegate
 - (void)jh_tagViewClicked:(JHTagModel *)model isSelected:(BOOL)isSelected{
-    NSLog(@"%@",model.text);
+    NSLog(@"点击了%@",model.text);
+}
+
+- (void)jh_tagViewRemoved:(JHTagModel *)model{
+    NSLog(@"移除了%@",model.text);
+    [self.tagView.tagModels removeObject:model];
+    [self.tagView reloadData];
 }
 
 - (void)btnDemo{
@@ -75,20 +83,29 @@
 
 - (void)btnC{
     [self.tagModels removeAllObjects];
+    
+    UIColor * myColor = [self r:42 g:187 b:189];
+    
     //展示相同宽度
     for (int i = 0; i<arc4random()%50+10; i++) {
-        JHTagModel * model = [JHTagModel randomSameWidth];
-        [model configCornerRadius:15 borderWidth:0.5 normalBorderColor:[UIColor purpleColor] normalTitleColor:[UIColor purpleColor] normalBackgroundColor:[UIColor whiteColor] selectTitleColor:[UIColor whiteColor] selectBackgroundColor:[UIColor purpleColor]];
+        JHTagModel * model = [JHTagModel random];
+        [model configCornerRadius:15 borderWidth:1 normalBorderColor:myColor normalTitleColor:myColor normalBackgroundColor:[UIColor whiteColor] selectTitleColor:[UIColor whiteColor] selectBackgroundColor:myColor];
         [self.tagModels addObject:model];
     }
-
+    //在最后增加一个自定义样式
+    JHTagModel * model = [JHTagModel random];
+    model.type = JHTagViewCustom;
+    model.text = @"自定义";
+    model.width = 74;
+    [model configCornerRadius:15 borderWidth:1 normalBorderColor:[self r:200 g:200 b:200] normalTitleColor:[self r:153 g:153 b:153] normalBackgroundColor:[UIColor whiteColor] selectTitleColor:[UIColor whiteColor] selectBackgroundColor:myColor];
+    [self.tagModels addObject:model];
     [_tagView removeFromSuperview];
     
     self.tagView = [[JHTagView alloc]initWithFrame:CGRectMake(0, 0, SCREEN.width - 60, 200)];
     
-    [self.tagView configMaxWidth:self.tagView.bounds.size.width horizontalMargin:10 verticalMargin:20];
+    [self.tagView configMaxWidth:self.tagView.bounds.size.width horizontalMargin:10 verticalMargin:5];
     
-    self.tagView.backgroundColor = [UIColor randomColor];
+    self.tagView.backgroundColor = [UIColor whiteColor];
 
     //1 算高度
     CGFloat height = [self.tagView getMaxHeightWithModels:self.tagModels];
@@ -101,6 +118,10 @@
     self.tagView.delegate = self;
 
     [self.view addSubview:self.tagView];
+}
+
+- (UIColor *)r:(CGFloat)r g:(CGFloat)g b:(CGFloat)b{
+    return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0];
 }
 
 - (void)didReceiveMemoryWarning {
