@@ -103,9 +103,6 @@
         totalWidth = totalWidth + btn.bounds.size.width + self.horizontalMargin;
         if (btn.bounds.size.height > horizontalMaxHeight) {
             horizontalMaxHeight = btn.bounds.size.height;
-//            if (model.type == JHTagViewEdit) {
-//                horizontalMaxHeight += 17;
-//            }
         }
         
         if (i+1 < tagModels.count) {
