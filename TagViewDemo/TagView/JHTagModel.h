@@ -39,8 +39,6 @@ typedef NS_ENUM(NSUInteger ,JHTagViewType){
 @property (nonatomic, copy) UIColor *selectTitleColor;/**< 选中状态文字颜色 */
 @property (nonatomic, copy) UIColor *selectBackgroundColor;/**< 选中背景颜色 */
 
-
-
 /**
  快速配置样式信息
 

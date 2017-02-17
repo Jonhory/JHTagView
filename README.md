@@ -8,42 +8,41 @@ demo里面写了如何展示相同宽度的标签。
 
 ![](http://ww4.sinaimg.cn/large/c6a1cfeagw1fbg6ml9vcqg20b90ka76o.gif)
 
+### V1.2
+
+![](http://ww1.sinaimg.cn/large/c6a1cfeagy1fcttsne1lrg20af0btdir)
+
 ## 使用
 * 初始化`JHTagView`
 
-  1 `self.tagView = [[JHTagView alloc]initWithFrame:CGRectMake(0, 0, SCREEN.width - 60, 200)]`
+1 `self.tagView = [[JHTagView alloc]initWithFrame:CGRectMake(0, 0, SCREEN.width - 60, 200)]`
 
   使用`initWithFrame`而不是`init`，是因为内部需要获取视图的最大宽度。
 
-  2 配置一些属性
+2 配置一些属性
 
-| 配置按钮样式信息||
-|:------:|:------:|
-|normarlBackColor|正常背景颜色|
-|normalTitleColor|正常文字颜色|
-|normalBorderColor|正常边框颜色|
-|selectedBackColor| 选中背景颜色|
-|selectedTitleColor|选中文字颜色|  
+`JHTagModel`配置必要的一些属性`text`、`font`等,支持自动计算宽高，还可以给某个视图添加高度增量／宽度增量，也可以主动设置宽高，可自定义性强。
 
-  `[self.tagView configWithNormalBackColor:[UIColor whiteColor]
-  normalTitleColor:[UIColor blackColor]
-  normalBorderColor:[UIColor redColor]
-  AndSelectedBackColor:[UIColor orangeColor]
-  selectedTitleColor:[UIColor whiteColor]];
-`
+```
+/**
+ 快速配置样式信息
 
-|配置布局样式||
-|:------:|:------:|
-|maxWidth |视图最大宽度|
-|margin |按钮间距|
-| isEnable|按钮是否可点击|
-|borderWidth |边线宽|
-|cornerRadius |圆角|
-
-`
-[self.tagView configMaxWidth:self.tagView.bounds.size.width
-margin:10 buttonIsEnable:YES borderWidth:0.5 cornerRadius:4];
-`
+ @param cornerRadius 圆角
+ @param borderWidth 边线宽
+ @param normalBorderColor 普通状态边线颜色
+ @param normalTitleColor 普通状态文字颜色
+ @param normalBackgroundColor 普通状态背景颜色
+ @param selectTitleColor 选中状态文字颜色
+ @param selectBackgroundColor 选中状态背景颜色
+ */
+- (void)configCornerRadius:(CGFloat)cornerRadius
+               borderWidth:(CGFloat)borderWidth
+         normalBorderColor:(UIColor *)normalBorderColor
+          normalTitleColor:(UIColor *)normalTitleColor
+     normalBackgroundColor:(UIColor *)normalBackgroundColor
+          selectTitleColor:(UIColor *)selectTitleColor
+     selectBackgroundColor:(UIColor *)selectBackgroundColor;
+```
 
 3 先计算好高度
 
@@ -59,8 +58,6 @@ margin:10 buttonIsEnable:YES borderWidth:0.5 cornerRadius:4];
 
 6 完成✅
 
-## 扩展性
-### 按着demo中的思路，还可以继续深入扩展到定义每个标签的背景颜色／文字颜色等任意属性。
 
 ## 关于我
 * 如果在使用过程中遇到问题，或者想要与我分享<jonhory@163.com>
