@@ -86,6 +86,16 @@
     return [UIColor orangeColor];
 }
 
+- (void)configCornerRadius:(CGFloat)cornerRadius borderWidth:(CGFloat)borderWidth normalBorderColor:(UIColor *)normalBorderColor normalTitleColor:(UIColor *)normalTitleColor normalBackgroundColor:(UIColor *)normalBackgroundColor selectTitleColor:(UIColor *)selectTitleColor selectBackgroundColor:(UIColor *)selectBackgroundColor{
+    self.cornerRadius = cornerRadius;
+    self.borderWidth = borderWidth;
+    self.normalBorderColor = normalBorderColor;
+    self.normalTitleColor = normalTitleColor;
+    self.normalBackgroundColor = normalBackgroundColor;
+    self.selectTitleColor = selectTitleColor;
+    self.selectBackgroundColor = selectBackgroundColor;
+}
+
 + (instancetype)random{
     JHTagModel * model = [[JHTagModel alloc]init];
     model.text = [self randomStrWithLength:arc4random()%8+1];

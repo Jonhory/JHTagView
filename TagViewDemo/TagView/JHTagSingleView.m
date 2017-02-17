@@ -46,11 +46,11 @@
     [self.tagBtn setTitleColor:model.normalTitleColor forState:UIControlStateNormal];
     [self.tagBtn setTitleColor:model.selectTitleColor forState:UIControlStateSelected];
     
-    [self handleBtn:self.tagBtn];
+    [self handleBtnSelected:self.tagBtn];
 }
 
 
-- (void)handleBtn:(UIButton *)btn{
+- (void)handleBtnSelected:(UIButton *)btn{
     if (btn.selected) {
         btn.backgroundColor = self.model.selectBackgroundColor;
         btn.layer.borderWidth = 0;
@@ -61,11 +61,13 @@
     }
 }
 
+
+
 #pragma mark - Touch Events
 - (void)tagBtnClicked:(UIButton *)btn{
     if (self.model.isAbleToSelect) {
         btn.selected = !btn.selected;
-        [self handleBtn:btn];
+        [self handleBtnSelected:btn];
     }
     if (self.delegate && [self.delegate respondsToSelector:@selector(jh_tagSingleViewClicked:isSelected:)]) {
         [self.delegate jh_tagSingleViewClicked:self.model isSelected:btn.selected];

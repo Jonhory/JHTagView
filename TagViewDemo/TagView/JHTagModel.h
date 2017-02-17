@@ -27,7 +27,7 @@ typedef NS_ENUM(NSUInteger ,JHTagViewType){
 @property (nonatomic ,assign) CGFloat widthMargin;//宽度增量
 @property (nonatomic ,assign) CGFloat heightMargin;//高度增量
 
-@property(nonatomic, assign) BOOL isAbleToSelect;/**< 是否点击后设为选中 */
+@property(nonatomic, assign) BOOL isAbleToSelect;/**< 是否点击后设为选中,不管该值YES or NO,代理事件都能被响应*/
 
 @property (nonatomic, assign) CGFloat cornerRadius;//圆角
 @property (nonatomic, assign) CGFloat borderWidth;/**< 边线宽 */
@@ -37,6 +37,27 @@ typedef NS_ENUM(NSUInteger ,JHTagViewType){
 @property (nonatomic, copy) UIColor *normalBackgroundColor;/**< 普通背景颜色 */
 @property (nonatomic, copy) UIColor *selectTitleColor;/**< 选中状态文字颜色 */
 @property (nonatomic, copy) UIColor *selectBackgroundColor;/**< 选中背景颜色 */
+
+
+
+/**
+ 快速配置样式信息
+
+ @param cornerRadius 圆角
+ @param borderWidth 边线宽
+ @param normalBorderColor 普通状态边线颜色
+ @param normalTitleColor 普通状态文字颜色
+ @param normalBackgroundColor 普通状态背景颜色
+ @param selectTitleColor 选中状态文字颜色
+ @param selectBackgroundColor 选中状态背景颜色
+ */
+- (void)configCornerRadius:(CGFloat)cornerRadius
+               borderWidth:(CGFloat)borderWidth
+         normalBorderColor:(UIColor *)normalBorderColor
+          normalTitleColor:(UIColor *)normalTitleColor
+     normalBackgroundColor:(UIColor *)normalBackgroundColor
+          selectTitleColor:(UIColor *)selectTitleColor
+     selectBackgroundColor:(UIColor *)selectBackgroundColor;
 
 + (instancetype)random;
 + (instancetype)randomSameWidth;

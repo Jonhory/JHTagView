@@ -46,13 +46,14 @@
     
     for (int i = 0; i<20; i++) {
         JHTagModel * model = [JHTagModel random];
+        [model configCornerRadius:15 borderWidth:0.5 normalBorderColor:[UIColor purpleColor] normalTitleColor:[UIColor purpleColor] normalBackgroundColor:[UIColor whiteColor] selectTitleColor:[UIColor whiteColor] selectBackgroundColor:[UIColor purpleColor]];
         [self.tagModels addObject:model];
     }
     self.tagView = [[JHTagView alloc]initWithFrame:CGRectMake(40, 100, SCREEN.width - 60, 200)];
     self.tagView.backgroundColor = [UIColor randomColor];
     self.tagView.tagModels = self.tagModels;
-    [self.tagView configWithNormalBackColor:[UIColor whiteColor] normalTitleColor:[UIColor blackColor] normalBorderColor:[UIColor redColor] AndSelectedBackColor:[UIColor orangeColor] selectedTitleColor:[UIColor whiteColor]];
-    [self.tagView configMaxWidth:SCREEN.width - 60 horizontalMargin:10 verticalMargin:15 buttonIsEnable:NO borderWidth:0.5 cornerRadius:4];
+    
+    [self.tagView configMaxWidth:SCREEN.width - 60 horizontalMargin:10 verticalMargin:15];
     [self.view addSubview:self.tagView];
     
     UIButton * btn = [[UIButton alloc]initWithFrame:CGRectMake(100, SCREEN.height - 100, 150, 50)];
@@ -77,18 +78,15 @@
     //展示相同宽度
     for (int i = 0; i<arc4random()%50+10; i++) {
         JHTagModel * model = [JHTagModel randomSameWidth];
+        [model configCornerRadius:15 borderWidth:0.5 normalBorderColor:[UIColor purpleColor] normalTitleColor:[UIColor purpleColor] normalBackgroundColor:[UIColor whiteColor] selectTitleColor:[UIColor whiteColor] selectBackgroundColor:[UIColor purpleColor]];
         [self.tagModels addObject:model];
     }
 
     [_tagView removeFromSuperview];
     
     self.tagView = [[JHTagView alloc]initWithFrame:CGRectMake(0, 0, SCREEN.width - 60, 200)];
-    UIColor * myColor = [UIColor colorWithRed:0 green:211/255.0 blue:197/255.0 alpha:1.0];
     
-    //配置一
-    [self.tagView configWithNormalBackColor:[UIColor whiteColor] normalTitleColor:myColor normalBorderColor:myColor AndSelectedBackColor:[UIColor whiteColor] selectedTitleColor:[UIColor orangeColor]];
-    //配置二
-    [self.tagView configMaxWidth:self.tagView.bounds.size.width horizontalMargin:10 verticalMargin:20 buttonIsEnable:YES borderWidth:0.5 cornerRadius:15];
+    [self.tagView configMaxWidth:self.tagView.bounds.size.width horizontalMargin:10 verticalMargin:20];
     
     self.tagView.backgroundColor = [UIColor randomColor];
 

@@ -56,23 +56,12 @@
     return _frameArr;
 }
 
-- (void)configMaxWidth:(CGFloat)maxWidth horizontalMargin:(CGFloat)horizontalMargin verticalMargin:(CGFloat)verticalMargin buttonIsEnable:(BOOL)isEnable borderWidth:(CGFloat)borderWidth cornerRadius:(CGFloat)cornerRadius{
+- (void)configMaxWidth:(CGFloat)maxWidth horizontalMargin:(CGFloat)horizontalMargin verticalMargin:(CGFloat)verticalMargin{
     self.maxWidth = maxWidth;
     self.horizontalMargin = horizontalMargin;
     self.verticalMargin = verticalMargin;
-    self.isEnable = isEnable;
-    self.borderWidth = borderWidth;
-    self.cornerRadius = cornerRadius;
 }
 
-- (void)configWithNormalBackColor:(UIColor *)normarlBackColor normalTitleColor:(UIColor *)normalTitleColor normalBorderColor:(UIColor *)normalBorderColor AndSelectedBackColor:(UIColor *)selectedBackColor selectedTitleColor:(UIColor *)selectedTitleColor{
-    self.kJHTagNormalBackColor = normarlBackColor;
-    self.kJHTagNormalTitleColor = normalTitleColor;
-    self.kJHTagNormalBorderColor = normalBorderColor;
-    
-    self.kJHTagSelectBackColor = selectedBackColor;
-    self.kJHTagSelectTitleColor = selectedTitleColor;
-}
 
 - (void)setTagModels:(NSArray<JHTagModel *> *)tagModels{
     _tagModels = tagModels;
