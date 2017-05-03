@@ -24,16 +24,6 @@
 
 @property (nonatomic ,strong) NSMutableArray * frameArr;
 
-@property (nonatomic ,copy) UIColor * kJHTagNormalBackColor;
-@property (nonatomic ,copy) UIColor * kJHTagNormalTitleColor;
-@property (nonatomic ,copy) UIColor * kJHTagNormalBorderColor;
-
-@property (nonatomic ,copy) UIColor * kJHTagSelectBackColor;
-@property (nonatomic ,copy) UIColor * kJHTagSelectTitleColor;
-
-@property (nonatomic ,assign) BOOL isEnable;
-@property (nonatomic ,assign) CGFloat borderWidth;
-@property (nonatomic ,assign) CGFloat cornerRadius;
 @property (nonatomic ,assign) CGFloat horizontalMargin;//按钮水平间距
 @property (nonatomic ,assign) CGFloat verticalMargin;//按钮垂直间距
 
